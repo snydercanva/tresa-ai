@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Mini Jarvis</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="w-screen h-screen bg-black text-cyan-400 font-orbitron flex flex-col items-center justify-center p-12 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-teal-900 to-black animate-gradient"></div>
+
+    <!-- Glowing Orb -->
+    <div id="orb" class="relative w-32 h-32 mb-8">
+        <div class="absolute inset-0 bg-teal-500 rounded-full opacity-30 animate-pulse"></div>
+        <div class="absolute inset-2 bg-teal-400 rounded-full opacity-50 animate-ping"></div>
+        <div class="absolute inset-4 bg-teal-300 rounded-full shadow-lg shadow-teal-500/50"></div>
+    </div>
+
+    <h1 class="text-teal-300 text-5xl font-bold tracking-wider shadow-lg shadow-teal-500/50 mb-6 animate-pulse">Mini Jarvis</h1>
+
+    <!-- Waveform -->
+    <canvas 
+        id="waveform" 
+        class="w-[600px] h-32 bg-gray-800/50 border border-teal-500/50 rounded-lg shadow-lg shadow-teal-500/30 hidden"
+    ></canvas>
+
+    <!-- Output and Loading Spinner -->
+    <div class="relative mt-10 max-w-3xl text-center">
+        <div 
+            id="output" 
+            class="text-2xl text-teal-200 shadow-md shadow-teal-500/50 bg-gray-800/70 p-8 rounded-lg transition-opacity duration-300"
+        >
+            Press and hold the spacebar to speak.
+        </div>
+        <div 
+            id="loading" 
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 border-4 border-teal-500 border-t-transparent rounded-full animate-spin hidden"
+        ></div>
+    </div>
+
+    <!-- Instruction Overlay (shown on first load) -->
+    <div 
+        id="instruction-overlay" 
+        class="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+    >
+        <div class="bg-gray-800/90 p-8 rounded-lg shadow-lg shadow-teal-500/50 text-center max-w-md">
+            <h2 class="text-3xl text-teal-300 mb-4">Welcome to Mini Jarvis!</h2>
+            <p class="text-xl text-teal-200 mb-6">Press and hold the spacebar to speak. Release to hear my response. Press Esc to cancel anytime.</p>
+            <button 
+                id="close-instruction" 
+                class="bg-teal-600 text-gray-900 px-6 py-3 rounded-full shadow-lg shadow-teal-500/50 hover:bg-teal-500 transition"
+            >
+                Got it!
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

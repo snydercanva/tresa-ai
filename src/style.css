@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply font-orbitron;
+    }
+}
+
+@layer utilities {
+    .animate-gradient {
+        background-size: 200% 200%;
+        animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Orb States */
+    .orb-idle .bg-teal-500 {
+        @apply bg-teal-500;
+    }
+    .orb-idle .bg-teal-400 {
+        @apply bg-teal-400;
+    }
+    .orb-idle .bg-teal-300 {
+        @apply bg-teal-300;
+    }
+
+    .orb-listening .bg-teal-500 {
+        @apply bg-green-500;
+    }
+    .orb-listening .bg-teal-400 {
+        @apply bg-green-400;
+    }
+    .orb-listening .bg-teal-300 {
+        @apply bg-green-300;
+    }
+
+    .orb-speaking .bg-teal-500 {
+        @apply bg-blue-500;
+    }
+    .orb-speaking .bg-teal-400 {
+        @apply bg-blue-400;
+    }
+    .orb-speaking .bg-teal-300 {
+        @apply bg-blue-300;
+    }
+}
